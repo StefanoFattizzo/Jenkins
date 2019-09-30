@@ -10,8 +10,9 @@ node ('master'){
         }
 
     } catch (Exception e) {
+        echo 'ERRORE'
         println (e.getMessage())
     } finally {
-        echo '$(currentBuild.result)'
+        echo $(currentBuild.result)
     }
 }
