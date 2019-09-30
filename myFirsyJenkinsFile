@@ -12,6 +12,6 @@ node ('master'){
     } catch (Exception e) {
         println (e.getMessage())
     } finally {
-        echo "$(currentBuild.result)"
+        echo '$(currentBuild.result)'
     }
 }
