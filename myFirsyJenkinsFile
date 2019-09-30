@@ -10,7 +10,11 @@ node ('master'){
         }
 
     } catch (Exception e) {
-        echo 'ERRORE'
+        echo "${BUILD_ID}"
+        echo "${env.BUILD_ID}"
+        BUILD_ID = 0
+        echo "${BUILD_ID}"
+        echo "${env.BUILD_ID}"
         currentBuild.result = 'FAILURE'
         println (e.getMessage())
     } finally {
