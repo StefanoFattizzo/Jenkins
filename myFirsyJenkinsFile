@@ -11,6 +11,7 @@ node ('master'){
 
     } catch (Exception e) {
         echo 'ERRORE'
+        currentBuild.result = 'FAILURE'
         println (e.getMessage())
     } finally {
         echo "JOB RESULT : ${currentBuild.result}"
