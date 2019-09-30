@@ -13,6 +13,6 @@ node ('master'){
         echo 'ERRORE'
         println (e.getMessage())
     } finally {
-        echo $(currentBuild.result)
+        echo "JOB RESULT : ${currentBuild.result}"
     }
 }
