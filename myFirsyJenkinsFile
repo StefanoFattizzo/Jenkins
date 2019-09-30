@@ -6,7 +6,7 @@ node ('master'){
         }
 
         stage ('Test'){
-            sh 'docker run --rm -v "$(pwd)":/sitespeed.io sitespeedio/sitespeed.io:10.1.0 https://www.sitespeed.io/'
+            sh 'docnker run --rm -v "$(pwd)":/sitespeed.io sitespeedio/sitespeed.io:10.1.0 https://www.sitespeed.io/'
         }
 
     } catch (Exception e) {
