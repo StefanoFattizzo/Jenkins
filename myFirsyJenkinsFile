@@ -10,11 +10,8 @@ node ('master'){
         }
 
     } catch (Exception e) {
-        echo "${BUILD_ID}"
-        echo "${env.BUILD_ID}"
-        BUILD_ID = 0
-        echo "${BUILD_ID}"
-        echo "${env.BUILD_ID}"
+        echo "${JAVA_HOME}"
+        echo "${env.JAVA_HOME}"
         currentBuild.result = 'FAILURE'
         println (e.getMessage())
     } finally {
