@@ -10,8 +10,7 @@ node ('master'){
         }
 
     } catch (Exception e) {
-        echo "${JAVA_HOME}"
-        echo "${env.JAVA_HOME}"
+        echo "la url di Jenkins è : ${env.JENKINS_URL}"
         currentBuild.result = 'FAILURE'
         println (e.getMessage())
     } finally {
