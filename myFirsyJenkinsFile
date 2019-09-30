@@ -1,5 +1,17 @@
 node ('master'){
-    stage ('Test'){
-        sh 'docker run --rm -v "$(pwd)":/sitespeed.io sitespeedio/sitespeed.io:10.1.0 https://www.sitespeed.io/'
+    try{
+
+        stage ('checkout'){
+            checkout scm
+        }
+
+        stage ('Test'){
+            sh 'docker run --rm -v "$(pwd)":/sitespeed.io sitespeedio/sitespeed.io:10.1.0 https://www.sitespeed.io/'
+        }
+
+    } catch (Exception e) {
+        println (e.getMessage())
+    } finally {
+        echo "$(currentBuild.result)"
     }
 }
