@@ -4,7 +4,9 @@ node ('master'){
         def publishes = [Milano4:'http://prdmiw3pub4:4503',Milano5:'http://prdmiw3pub5:4503',Milano6:'http://prdmiw3pub6:4503',aws64_pub01:'http://10.41.132.184:4503',aws64_pub02:'http://10.41.132.186:4503',aws64_pub03:'http://10.41.132.190:4503']
 
         stage ('example'){
-            echo "Milano4 = ${publishes['Milano4']}"
+            publishes.each { key, value ->
+                echo "Milano4 = ${value}"
+            }
         }
 
 
