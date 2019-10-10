@@ -5,7 +5,7 @@ node ('master'){
 
         stage ('example'){
             publishes.each { key, value ->
-                echo "Milano4 = ${value}"
+                echo "${key} = ${value}"
             }
         }
 
