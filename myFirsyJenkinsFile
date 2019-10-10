@@ -1,14 +1,13 @@
 node ('master'){
     try{
 
-        stage ('checkout'){
-            checkout scm
+        def publishes = [Milano4:'http://prdmiw3pub4:4503',Milano5:'http://prdmiw3pub5:4503',Milano6:'http://prdmiw3pub6:4503',aws64_pub01:'http://10.41.132.184:4503',aws64_pub02:'http://10.41.132.186:4503',aws64_pub03:'http://10.41.132.190:4503']
+
+        stage ('example'){
+            echo "Milano4 = ${publishes['Milano4']}"
         }
 
-        stage ('Test'){
-            sh 'docnker run --rm -v "$(pwd)":/sitespeed.io sitespeedio/sitespeed.io:10.1.0 https://www.sitespeed.io/'
-        }
-
+        
     } catch (Exception e) {
         echo "la url di Jenkins è : ${env.JENKINS_URL}"
         currentBuild.result = 'FAILURE'
