@@ -1,0 +1,12 @@
+node ('master'){
+    try{
+        
+
+    } catch (Exception e) {
+        echo "la url di Jenkins è : ${env.JENKINS_URL}"
+        currentBuild.result = 'FAILURE'
+        println (e.getMessage())
+    } finally {
+        echo "JOB RESULT : ${currentBuild.result}"
+    }
+}
