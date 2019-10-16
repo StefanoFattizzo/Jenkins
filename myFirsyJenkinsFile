@@ -1,13 +1,19 @@
 node ('master'){
     try{
 
+        properties([
+            parameters([
+                string (name: 'BRANCH', defaultValue: '', description: 'Branch to build', required: true),
+            ])
+        ])
+
         stage ('checkout'){
             checkout scm
         }
 
-        stage ('Test'){
-            sh 'docnker run --rm -v "$(pwd)":/sitespeed.io sitespeedio/sitespeed.io:10.1.0 https://www.sitespeed.io/'
-        }
+        //stage ('Test'){
+        //    sh 'docnker run --rm -v "$(pwd)":/sitespeed.io sitespeedio/sitespeed.io:10.1.0 https://www.sitespeed.io/'
+        //}
 
     } catch (Exception e) {
         echo "la url di Jenkins è : ${env.JENKINS_URL}"
